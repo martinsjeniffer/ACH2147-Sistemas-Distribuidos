@@ -4,11 +4,15 @@ public interface Part {
 
     Integer getCodigo();
 
-    String getNome();
+    String getNomePeca();
+
+    String getNomeRepo();
 
     String getDescricao();
 
-    List<SubPeca> getSubPecas();
+    List<SubPart> getSubPecas();
 
     boolean ehPrimitiva();
+
+    String toString2();
 }

@@ -1,9 +1,26 @@
+import java.io.Serializable;
 import java.util.List;
 
-public class SubPeca implements Part {
+public class SubPeca implements SubPart, Serializable {
 
+    //atributos de uma subpeca
     private Part peca;
     private int quantidade;
+
+    public SubPeca(Part peca, int quantidade) {
+        this.peca = peca;
+        this.quantidade = quantidade;
+    }
+
+    @Override
+    public Part getPart() {
+        return this.peca;
+    }
+
+    @Override
+    public int getQuantidade() {
+        return this.quantidade;
+    }
 
     @Override
     public Integer getCodigo() {
@@ -11,8 +28,13 @@ public class SubPeca implements Part {
     }
 
     @Override
-    public String getNome() {
-        return this.peca.getNome();
+    public String getNomePeca() {
+        return this.peca.getNomePeca();
+    }
+
+    @Override
+    public String getNomeRepo() {
+        return this.peca.getNomeRepo();
     }
 
     @Override
@@ -21,7 +43,7 @@ public class SubPeca implements Part {
     }
 
     @Override
-    public List<SubPeca> getSubPecas() {
+    public List<SubPart> getSubPecas() {
         return this.peca.getSubPecas();
     }
 
@@ -30,7 +52,8 @@ public class SubPeca implements Part {
         return this.peca.ehPrimitiva();
     }
 
-    public int getQuantidade() {
-        return this.quantidade;
+    @Override
+    public String toString2() {
+        return this.peca.toString2();
     }
 }

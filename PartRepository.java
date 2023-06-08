@@ -8,9 +8,17 @@ public interface PartRepository extends Remote {
 
     Integer getQtdPartsRepo() throws RemoteException;
 
-    Part getPart(Integer codigo) throws RemoteException;
+    Part getPartRepo(Integer codigo) throws RemoteException;
 
-    List<Part> getParts() throws RemoteException;
+    List<Part> getRepo() throws RemoteException;
 
-    void addPartRepo(Part part) throws RemoteException;
+    String listPartsRepo() throws RemoteException;
+
+    Part addPartRepo(String nome, String descricao, List<SubPart> subparts) throws RemoteException;
+
+    void addSubPartRepo(List<SubPart> subparts, Part part, int quantidade) throws RemoteException;
+
+    void removePartRepo(Part part) throws RemoteException;
+
+    void alterPartRepo(Part part, String nome, String descricao) throws RemoteException;
 }
